@@ -213,7 +213,7 @@ Resources:
       SubnetId: !Ref DatabaseSubnetA
  
   RouteAssociationDatabaseB:
-    Type: "AWS::EC2::SubnetRouteTableAssociation"
+    Type: "AWS::EC2::SubnetRouteTkjhableAssociation"
     Properties:
       RouteTableId: !Ref RouteTableForDatabase
       SubnetId: !Ref DatabaseSubnetB
