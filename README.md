@@ -1,4 +1,4 @@
-# CloudFormation which deploy VPC in 2 Availability Zones include:
+# CloudFormation deploy VPC in 2 Availability Zones:
 * 2 Public Subents
 * 2 Private Subnets
 * 2 Database Subnets
