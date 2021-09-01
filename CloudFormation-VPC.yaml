@@ -4,7 +4,7 @@
 #
 # Version      Date           Name                Info
 # 1.0          26-Nov-2017    Denis Astahov       Initial Version
-#
+# 1.1          01-Sep-2021    Denis Astahov       Added tags for EKS
 # --------------------------------------------------------------------------------------------------
 AWSTemplateFormatVersion: 2010-09-09
 Description: "Network: VPC, Subnets + RouteTables, Internet + NAT Gateways"
@@ -267,6 +267,8 @@ Resources:
       Tags:
         - Key: Name
           Value: !Join [ "", [ !Ref Environment, "-Public-A" ] ]
+        - Key: kubernetes.io/role/elb
+          Value: 1    
 
   PublicSubnetB:
     Type: "AWS::EC2::Subnet"
@@ -278,6 +280,8 @@ Resources:
       Tags:
         - Key: Name
           Value: !Join [ "", [ !Ref Environment, "-Public-B" ] ]
+        - Key: kubernetes.io/role/elb
+          Value: 1   
 
   PrivateSubnetA:
     Type: "AWS::EC2::Subnet"
@@ -289,6 +293,8 @@ Resources:
       Tags:
         - Key: Name
           Value: !Join [ "", [ !Ref Environment, "-Private-A" ] ]
+        - Key: kubernetes.io/role/internal-elb
+          Value: 1   
 
   PrivateSubnetB:
     Type: "AWS::EC2::Subnet"
@@ -300,6 +306,8 @@ Resources:
       Tags:
         - Key: Name
           Value: !Join [ "", [ !Ref Environment, "-Private-B" ] ]
+        - Key: kubernetes.io/role/internal-elb
+          Value: 1   
 
   DatabaseSubnetA:
     Type: "AWS::EC2::Subnet"
