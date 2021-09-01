@@ -226,12 +226,18 @@ Resources:
     DependsOn : GatewayAttachmentInternet
     Properties:
       Domain: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: EIP-NATGateway-A      
 
   EIP2:
     Type: "AWS::EC2::EIP"
     DependsOn : GatewayAttachmentInternet
     Properties:
       Domain: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: EIP-NATGateway-B      
  
 #========= NAT Gateways ===============	  	  
 
